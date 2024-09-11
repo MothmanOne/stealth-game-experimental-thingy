@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://1jf3oetrnweh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adxar"]
+size = Vector2(77, 383)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_by08b"]
+
+[node name="BouncyBallsExperiment" type="Node2D"]
+
+[node name="down" type="StaticBody2D" parent="."]
+position = Vector2(591, 393)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down"]
+position = Vector2(91, 257)
+shape = SubResource("RectangleShape2D_adxar")
+
+[node name="Sprite2D" type="Sprite2D" parent="down"]
+position = Vector2(91, 258.5)
+scale = Vector2(-78, 386)
+texture = SubResource("PlaceholderTexture2D_by08b")
+
+[node name="up" type="StaticBody2D" parent="."]
+position = Vector2(601, -26)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="up"]
+position = Vector2(91, 257)
+shape = SubResource("RectangleShape2D_adxar")
+
+[node name="Sprite2D" type="Sprite2D" parent="up"]
+position = Vector2(91, 258.5)
+scale = Vector2(-78, 386)
+texture = SubResource("PlaceholderTexture2D_by08b")
+
+[node name="right" type="StaticBody2D" parent="."]
+position = Vector2(459, 7)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(91, 257)
+shape = SubResource("RectangleShape2D_adxar")
+
+[node name="Sprite2D" type="Sprite2D" parent="right"]
+position = Vector2(91, 258.5)
+scale = Vector2(-78, 386)
+texture = SubResource("PlaceholderTexture2D_by08b")
+
+[node name="left" type="StaticBody2D" parent="."]
+position = Vector2(26, 8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(91, 257)
+shape = SubResource("RectangleShape2D_adxar")
+
+[node name="Sprite2D" type="Sprite2D" parent="left"]
+position = Vector2(91, 258.5)
+scale = Vector2(-78, 386)
+texture = SubResource("PlaceholderTexture2D_by08b")
