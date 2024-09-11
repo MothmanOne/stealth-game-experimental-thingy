@@ -1,6 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1725957018
+::res://::1726022925
 icon.svg::CompressedTexture2D::4974405894708237182::1725956972::1725957020::1::::<><>::
 README.md::TextFile::-1::1725956972::0::1::::<><>::
-::res://prefabs/::1725956972
-player.tscn::PackedScene::8452748834707969302::1725956972::0::1::::<><>::
+::res://prefabs/::1726010552
+main.tscn::PackedScene::2067398797368051589::1726010552::0::1::::<><>::uid://dsotskletxick::::res://prefabs/player.tscn
+player.gd::GDScript::-1::1726010002::0::1::::<>Node2D<>::
+player.tscn::PackedScene::8452748834707969302::1726010551::0::1::::<><>::res://prefabs/player.gd<>res://prefabs/PlayerBody.gd
+PlayerBody.gd::GDScript::-1::1726010552::0::1::::<>CharacterBody2D<>::

@@ -1,18 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsotskletxick"]
+[gd_scene load_steps=5 format=3 uid="uid://dsotskletxick"]
+
+[ext_resource type="Script" path="res://prefabs/player.gd" id="1_n4wwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y133e"]
 radius = 48.0104
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i6mvj"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7ev6r"]
+
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(136, 132)
+script = ExtResource("1_n4wwl")
 metadata/_edit_group_ = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="PlayerShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y133e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_i6mvj")
+
+[node name="PlayerPlaceholderSprite" type="Sprite2D" parent="."]
+position = Vector2(-2.5, 2)
+scale = Vector2(69, 88)
+texture = SubResource("PlaceholderTexture2D_7ev6r")

@@ -1,1 +1,4 @@
 res://prefabs/player.tscn
+res://prefabs/player.gd
+res://prefabs/PlayerBody.gd
+res://prefabs/main.tscn
