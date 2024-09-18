@@ -1,7 +1,5 @@
+res://prefabs/player2.tscn
 res://prefabs/player.tscn
-res://prefabs/player.gd
-res://prefabs/PlayerBody.gd
-res://prefabs/main.tscn
 res://scenes/main.tscn
 res://scenes/bouncy_balls_experiment.tscn
-res://scenes/RigidBody2D.gd
+res://prefabs/player2.gd

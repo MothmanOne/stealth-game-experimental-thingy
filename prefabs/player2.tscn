@@ -1,0 +1,162 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8g4r4h5475y2"]
+
+[ext_resource type="Script" path="res://prefabs/player2.gd" id="1_hmhn5"]
+[ext_resource type="Texture2D" uid="uid://bn2xrchjykrpw" path="res://assets/sprites/mainchara.png" id="1_i8xl0"]
+[ext_resource type="Texture2D" uid="uid://w01knl7jqie3" path="res://assets/sprites/baton_hand.png" id="3_dx266"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ktxb"]
+radius = 128.104
+
+[sub_resource type="Animation" id="Animation_n88pr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-88.9591, 133.494)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon:disable_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmnon"]
+_data = {
+"RESET": SubResource("Animation_n88pr")
+}
+
+[sub_resource type="Animation" id="Animation_2kfig"]
+resource_name = "baton_swing"
+length = 0.262
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0377558, 0.0841504, 0.153848, 0.199169, 0.228789),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-88.9591, 133.494), Vector2(142.876, 78.0868), Vector2(139.004, -74.9631), Vector2(34.0224, -152.241), Vector2(-34.5073, -149.325)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0377558, 0.0841504, 0.153848, 0.199169, 0.228789),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.80406, -2.84889, -3.39208, -4.1411]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0377558, 0.246152, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon:disable_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.246152),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3hiwv"]
+_data = {
+"baton_swing": SubResource("Animation_2kfig")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ls4dm"]
+radius = 12.9842
+height = 150.865
+
+[node name="Player2" type="CharacterBody2D"]
+position = Vector2(87.3179, 85.2185)
+scale = Vector2(0.305504, 0.305504)
+collision_mask = 4
+script = ExtResource("1_hmhn5")
+speed = 1500.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3ktxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_i8xl0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qmnon"),
+"player_anims": SubResource("AnimationLibrary_3hiwv")
+}
+
+[node name="Weapon" type="AnimatableBody2D" parent="."]
+position = Vector2(-88.9591, 133.494)
+collision_layer = 2
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+position = Vector2(-28.6203, 41.8043)
+rotation = -1.9769
+texture = ExtResource("3_dx266")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
+position = Vector2(-29.2958, 45.6557)
+rotation = 0.554546
+shape = SubResource("CapsuleShape2D_ls4dm")
