@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddbjt5nmf11ty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atss4"]
+size = Vector2(30.5002, 566.573)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_torv6"]
+
+[node name="TestLevel" type="Node2D"]
+metadata/_edit_vertical_guides_ = [27.3639]
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(309.824, 224.686)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_atss4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(309.996, 230.196)
+rotation = -3.14159
+scale = Vector2(564.815, 22.4186)
+texture = SubResource("PlaceholderTexture2D_torv6")
+
+[node name="Area2D4" type="StaticBody2D" parent="."]
+position = Vector2(1.8877, -228.418)
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(309.824, 229.936)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_atss4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D4"]
+position = Vector2(309.996, 230.196)
+rotation = -3.14159
+scale = Vector2(564.815, 22.4186)
+texture = SubResource("PlaceholderTexture2D_torv6")
+
+[node name="Area2D2" type="StaticBody2D" parent="."]
+position = Vector2(823.296, -15.7365)
+rotation = 1.5708
+scale = Vector2(0.44, 1)
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(309.824, 229.936)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_atss4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+position = Vector2(309.996, 230.196)
+rotation = -3.14159
+scale = Vector2(564.815, 22.4186)
+texture = SubResource("PlaceholderTexture2D_torv6")
+
+[node name="Area2D3" type="StaticBody2D" parent="."]
+position = Vector2(258.859, -13.8487)
+rotation = 1.5708
+scale = Vector2(0.44, 1)
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(309.824, 229.936)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_atss4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+position = Vector2(309.996, 230.196)
+rotation = -3.14159
+scale = Vector2(564.815, 22.4186)
+texture = SubResource("PlaceholderTexture2D_torv6")

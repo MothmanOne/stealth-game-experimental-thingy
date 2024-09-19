@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://4pp0ydnwfugb"]
+[gd_scene load_steps=5 format=3 uid="uid://4pp0ydnwfugb"]
 
 [ext_resource type="PackedScene" uid="uid://b8g4r4h5475y2" path="res://prefabs/player2.tscn" id="1_44nry"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_c6oeu"]
+[ext_resource type="PackedScene" uid="uid://ddbjt5nmf11ty" path="res://scenes/levels/test_level.tscn" id="2_hndae"]
+[ext_resource type="PackedScene" uid="uid://cns7gsvnaww53" path="res://prefabs/enemy.tscn" id="3_duan8"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_c6oeu")
 
 [node name="Player2" parent="." instance=ExtResource("1_44nry")]
+position = Vector2(171.223, 209.578)
+speed = 50.0
+
+[node name="TestLevel" parent="." instance=ExtResource("2_hndae")]
+position = Vector2(-28.8314, 11.4207)
+scale = Vector2(1.88, 2.56)
+
+[node name="Enemy" parent="." instance=ExtResource("3_duan8")]
+position = Vector2(512.421, 212.76)
+collision_mask = 18

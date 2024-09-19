@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b8g4r4h5475y2"]
 
-[ext_resource type="Script" path="res://prefabs/player2.gd" id="1_hmhn5"]
+[ext_resource type="Script" path="res://scripts/player2.gd" id="1_cohvx"]
 [ext_resource type="Texture2D" uid="uid://bn2xrchjykrpw" path="res://assets/sprites/mainchara.png" id="1_i8xl0"]
 [ext_resource type="Texture2D" uid="uid://w01knl7jqie3" path="res://assets/sprites/baton_hand.png" id="3_dx266"]
 
@@ -80,7 +80,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Weapon:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -120,16 +120,17 @@ _data = {
 "baton_swing": SubResource("Animation_2kfig")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ls4dm"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ulmlx"]
 radius = 12.9842
-height = 150.865
+height = 152.525
 
-[node name="Player2" type="CharacterBody2D"]
+[node name="Player2" type="CharacterBody2D" groups=["player"]]
 position = Vector2(87.3179, 85.2185)
 scale = Vector2(0.305504, 0.305504)
-collision_mask = 4
-script = ExtResource("1_hmhn5")
-speed = 1500.0
+collision_mask = 20
+floor_snap_length = 12.6
+script = ExtResource("1_cohvx")
+speed = 100.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -145,18 +146,19 @@ libraries = {
 "player_anims": SubResource("AnimationLibrary_3hiwv")
 }
 
-[node name="Weapon" type="AnimatableBody2D" parent="."]
+[node name="Weapon" type="Node2D" parent="." groups=["weapon"]]
 position = Vector2(-88.9591, 133.494)
-collision_layer = 2
-collision_mask = 4
-metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+[node name="WeaponArea" type="Area2D" parent="Weapon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/WeaponArea"]
+position = Vector2(-29.2958, 45.6557)
+rotation = 0.554546
+shape = SubResource("CapsuleShape2D_ulmlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon/WeaponArea"]
 position = Vector2(-28.6203, 41.8043)
 rotation = -1.9769
 texture = ExtResource("3_dx266")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
-position = Vector2(-29.2958, 45.6557)
-rotation = 0.554546
-shape = SubResource("CapsuleShape2D_ls4dm")
+[connection signal="body_entered" from="Weapon/WeaponArea" to="." method="_on_weapon_area_body_entered"]
